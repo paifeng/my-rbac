@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+
+	<!-- 权限过滤 -->
+	<filter>
+		<filter-name>PrivilegeFilter</filter-name>
+		<filter-class>com.hooverz.filter.PrivilegeFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PrivilegeFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>PrivilegeFilter</filter-name>
+		<url-pattern>/servlet/*</url-pattern>
+	</filter-mapping>
+
+
+	<display-name>权限管理系统</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>VerifiCodeServlet</servlet-name>
+		<servlet-class>com.hooverz.web.action.VerifiCodeServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>com.hooverz.web.action.UserServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UserManageServlet</servlet-name>
+		<servlet-class>com.hooverz.web.action.UserManageServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RoleServlet</servlet-name>
+		<servlet-class>com.hooverz.web.action.RoleServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrivilegeServlet</servlet-name>
+		<servlet-class>com.hooverz.web.action.PrivilegeServlet</servlet-class>
+	</servlet>
+
+
+
+
+
+	<servlet-mapping>
+		<servlet-name>VerifiCodeServlet</servlet-name>
+		<url-pattern>/servlet/VerifiCodeServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/servlet/UserServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserManageServlet</servlet-name>
+		<url-pattern>/servlet/UserManageServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RoleServlet</servlet-name>
+		<url-pattern>/servlet/RoleServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrivilegeServlet</servlet-name>
+		<url-pattern>/servlet/PrivilegeServlet</url-pattern>
+	</servlet-mapping>
+</web-app>
